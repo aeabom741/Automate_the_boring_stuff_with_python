@@ -1,3 +1,4 @@
+import pprint
 mycat = {'size':'fat','color':'gray','disposition':'loud'}
 print(mycat['size'])
 print("My cat has "+ mycat['color'] +' fur' )
@@ -28,7 +29,33 @@ while True:
 #Key()、value()和item()方法
 spam = {'color':'red','age':42}
 for i,j in spam.items():
-    print(i,j)
-
+    print("Keys:" + i + ' Value ' + str(j))
+print('-----------------------------')
 print(spam.keys())
-print(lisr(spam.keys()))
+print(list(spam.keys()))
+#檢查字典中鍵與值是否存在
+spam = {'name':'Zophie',"age":'7'}
+print('name' in spam.keys())
+print('7' in spam.values())
+#get()用法
+picnicItems = {'apple':5,'cups':2}
+print("I'm brining "+str(picnicItems.get('apple',0)) +  ' cups')
+print("I'm brining "+str(picnicItems.get('egg',0)) +  ' cups')
+
+#setdefault()方法
+spam = {'name':'Pooka','age':5}
+spam.setdefault('color','black')
+print(spam)
+
+messages = "It was a bright cold day in April"
+count = {}
+for character in messages:
+    count.setdefault(character,0)
+    count[character] += 1
+pprint.pprint(count)
+
+
+
+
+
+
