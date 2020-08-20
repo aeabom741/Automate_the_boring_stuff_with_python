@@ -21,3 +21,11 @@ eggs = ("hello",42,0.5)
 print(eggs[0])
 print(eggs[1])
 print(eggs[:])
+
+#使用list()和tuple()函式來轉換型別
+a = tuple(['cat','dog',5])
+print(a)
+a = list(a)
+print(a)
+a = list('hello')
+print(a)
