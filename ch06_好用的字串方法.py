@@ -59,6 +59,7 @@ print('join()和split()字串方法')
 print(','.join(['cat','rat','dog']))
 print(' '.join(['My','name','is','Leo']))
 print('ABC'.join(["My",'Name','Is','Simon']))
+print('Split')
 print('My name is Simpon'.split())
 print("MyABCNameABCIsABCSimon".split("ABC"))
 
