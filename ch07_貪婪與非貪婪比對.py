@@ -42,6 +42,9 @@ print(mo1)
 contextReget = re.compile(r'[^AEIOUaeiou]')
 mo1 = contextReget.findall('Robocop eat baby food ,BABY FOOD')
 print(mo1)
+
+print('--------------------------------')
+print('--------------------------------')
 """
 ^字元和$字元
 """
@@ -60,12 +63,70 @@ wholestringisnum = re.compile(r'^\d+$')
 mo1 = wholestringisnum.search('0532188664')
 print(mo1)
 
+print('--------------------------------')
+print('--------------------------------')
 """
 萬用字元
 """
 atRegex = re.compile(r'.at')
 mo1 = atRegex.findall('The cat in the hat sat on the flat mat')
 print(mo1)
+
+print('--------------------------------')
+print('--------------------------------')
+"""
+使用.*比對尋找所有字元
+"""
+
+nameRegex = re.compile(r'First name:(.*) Last name:(.*)')
+mo1 = nameRegex.search('First name:Leo Last name:Steve')
+print(mo1.group())
+
+#非貪婪模式
+nongreedyRegex = re.compile(r'<.*?>')
+mo = nongreedyRegex.search('<To sever man> for dinner>')
+print(mo.group())
+
+greedyRegex = re.compile(r'<.*>')
+mo1 = greedyRegex.search('<To sever man> for dinner>')
+print(mo1.group())
+
+print('--------------------------------')
+print('--------------------------------')
+"""
+使用 . 字元比對找出換行符號
+"""
+nonewlineRegex = re.compile('.*')
+print(nonewlineRegex.search("Sever the public trust. \nPortect the inconcent.").group())
+
+newlineRegex = re.compile('.*',re.DOTALL)
+print(newlineRegex.search("Sever the public trust. \nPortect the inconcent.").group())
+
+print('--------------------------------')
+print('--------------------------------')
+"""
+比對時不分區大小寫
+"""
+regex = re.compile("robocop",re.I)
+mo1 = regex.search("ROBOCOP is part man")
+mo2 = regex.search("robOcOP is part man")
+print(mo1.group())
+print(mo2.group())
+
+print('--------------------------------')
+print('--------------------------------')
+"""
+使用sub()方法取代字串
+"""
+nameRegex = re.compile(r'Agent \w+')
+print(nameRegex.sub('CENSORED' , 'Agent Alice give me five'))
+
+nameRegex = re.compile(r'Agent (\w)\w*')
+m0 = nameRegex.sub(r'\1****','Agent Alice told Agent Carol that Agent Eve knew Agent Bob was a double')
+print(m0)
+
+
+
 
 
 
